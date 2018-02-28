@@ -2,19 +2,29 @@
 
 # get zsh config from github
 
-##git clone https://github.com/aaswenson/zsh_config .zsh_config
-##cd .zsh_config
-##./install.sh
+git clone https://github.com/aaswenson/zsh_config /home/alex/.zsh_config
+cd /home/alex/.zsh_config
+./install.sh
 
-##apt install zsh
+apt install zsh
+chsh -s /usr/bin/zsh
+sudo apt-get install fonts-powerline
 
+##################### CLONE RESEARCH WORK ####################################
+cd /home/alex
+mkdir research
+cd /home/alex/research
 
+git clone https://github.com/aaswenson/sCO2_reactor
+git clone https://github.com/aaswenson/UWNR
+git clone https://github.com/aaswenson/useful_research_scripts
+git clone https://github.com/aaswenson/mcnp_parser
 ##################### OTHER PROGRAMS #########################################
 
-sudo apt-get install htop
+sudo apt-get install htop vim-gtk
 
 ### Slack
-#sudo snap install slack --classic
+sudo snap install slack --classic
 
 ### Spotify
 snap install spotify
@@ -37,26 +47,21 @@ sudo apt-get install cmake
 gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 
 ##################### PYTHON STUFF ###########################################
-sudo apt-get install python-pip python-dev build-essential 
+sudo apt-get install python-pip python-dev python3-pip python3-dev build-essential 
 sudo pip install --upgrade pip 
-sudo pip install --upgrade virtualenv 
-
-sudo apt-get install python3-pip python3-dev build-essential 
+sudo pip install --upgrade virtualenv
 
 pip3 install --upgrade pip3
 
-pip install numpy
-pip install scipy
-
-pip3 install numpy
-pip3 install scipy
+pip install matplotlib numpy scipy
+pip3 install matplotlib numpy scipy
 
 ### For All Programs ###
 sudo apt-get update
 sudo apt-get upgrade
 
 ###################### REACTOR PHYSICS RSICC SOFTWARE #########################
-##mkdir opt
+mkdir /home/alex/opt
 ##mkdir opt/rsicc
 
 # copy mcnp tarball
@@ -77,9 +82,10 @@ echo "export PATH=/home/alex/opt/rsicc/SCALE/cmds:\$PATH" >> ~/.zshrc
     
 
 ###################### PYNE #####################
-sudo apt-get install -y build-essential python-numpy python-scipy cython python-nose git cmake vim emacs gfortran libblas-dev liblapack-dev libhdf5-dev gfortran python-tables python-matplotlib python-jinja2 autoconf libtool
+sudo apt-get install -y build-essential cython python-nose libhdf5-dev cmake emacs gfortran libblas-dev liblapack-dev gfortran python-tables python-jinja2 autoconf libtool
+hdf5_libdir=/usr/lib/x86_64-linux-gnu/hdf5/serial
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 mkdir/home/alex/opt/pyne
-git clone https://github.com/aaswenson/pyne opt/pyne
+git clone https://github.com/aaswenson/pyne /home/alex/opt/pyne
 cd /home/alex/opt/pyne
 python3 setup.py install --user
